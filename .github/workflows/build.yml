@@ -50,7 +50,4 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: './coverage/**/coverage.cobertura.xml'
-
-      - name: List coverage files
-        run: cat ./coverage/**/coverage.cobertura.xml
+          files: '**/coverage.cobertura.xml'
