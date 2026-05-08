@@ -13,7 +13,7 @@ public class CreateItemViewModelTests
         var title = "";
 
         // Act
-        var result = ValidateItemForm(title, "desc", "9.99", "Tools", out var error);
+        var result = FormValidator.ValidateItemForm(title, "desc", "9.99", "Tools", out var error);
 
         // Assert
         Assert.False(result);
@@ -28,7 +28,7 @@ public class CreateItemViewModelTests
         var dailyRate = "-9.99";
 
         // Act
-        var result = ValidateItemForm("title", "desc", dailyRate, "Tools", out var error);
+        var result = FormValidator.ValidateItemForm("title", "desc", dailyRate, "Tools", out var error);
 
         // Assert
         Assert.False(result);
@@ -42,7 +42,7 @@ public class CreateItemViewModelTests
         var dailyRate = "abcdefg";
 
         // Act
-        var result = ValidateItemForm("title", "desc", dailyRate, "Tools", out var error);
+        var result = FormValidator.ValidateItemForm("title", "desc", dailyRate, "Tools", out var error);
 
         // Assert
         Assert.False(result);
