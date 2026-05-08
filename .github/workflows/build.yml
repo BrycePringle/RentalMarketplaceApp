@@ -1,7 +1,4 @@
 name: Build & Test
-uses: codecov/codecov-action@v5
-with:
-token: ${{ secrets.CODECOV_TOKEN }}
 
 on:
   pull_request:
@@ -50,6 +47,7 @@ jobs:
         run: dotnet test ./StarterApp.sln --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
 
       - name: Upload coverage reports
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: '**/coverage.cobertura.xml'
