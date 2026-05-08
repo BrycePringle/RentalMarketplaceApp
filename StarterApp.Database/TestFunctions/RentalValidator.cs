@@ -11,9 +11,4 @@ public static class RentalValidator
             r.StartDate < endDate &&
             r.EndDate > startDate);
     }
-
-    public static double GetEffectiveRadius(double radius)
-    {
-        return radius > 0 ? radius : 10;
-    }
 }
