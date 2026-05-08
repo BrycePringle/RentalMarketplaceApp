@@ -5,14 +5,6 @@ using StarterApp.Database.Models;
 using GeoPoint = NetTopologySuite.Geometries.Point;
 public class RentalServiceTests
 {
-    public bool CanRent(IEnumerable<Rental> existingRentals, DateTime startDate, DateTime endDate)
-    {
-        return !existingRentals.Any(r =>
-            r.Status == "Approved" &&
-            r.StartDate < endDate &&
-            r.EndDate > startDate);
-    }
-
     [Fact]
     public void CanRent_WhenDatesOverlap_ReturnsFalse()
     {
@@ -23,7 +15,7 @@ public class RentalServiceTests
         };
 
         // Act
-        var result = CanRent(existingRentals, DateTime.Today.AddDays(3), DateTime.Today.AddDays(7));
+        var result = RentalValidator.CanRent(existingRentals, DateTime.Today.AddDays(3), DateTime.Today.AddDays(7));
 
         // Assert
         Assert.False(result);
@@ -39,7 +31,7 @@ public class RentalServiceTests
         };
 
         // Act
-        var result = CanRent(existingRentals, DateTime.Today.AddDays(6), DateTime.Today.AddDays(10));
+        var result = RentalValidator.CanRent(existingRentals, DateTime.Today.AddDays(6), DateTime.Today.AddDays(10));
 
         // Assert
         Assert.True(result);
@@ -55,7 +47,7 @@ public class RentalServiceTests
         };
 
         // Act
-        var result = CanRent(existingRentals, DateTime.Today.AddDays(3), DateTime.Today.AddDays(7));
+        var result = RentalValidator.CanRent(existingRentals, DateTime.Today.AddDays(3), DateTime.Today.AddDays(7));
 
         // Assert
         Assert.True(result);
@@ -68,7 +60,7 @@ public class RentalServiceTests
         var existingRentals = new List<Rental>();
 
         // Act
-        var result = CanRent(existingRentals, DateTime.Today, DateTime.Today.AddDays(5));
+        var result = RentalValidator.CanRent(existingRentals, DateTime.Today, DateTime.Today.AddDays(5));
 
         // Assert
         Assert.True(result);

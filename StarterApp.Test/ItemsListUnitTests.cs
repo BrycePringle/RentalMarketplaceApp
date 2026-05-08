@@ -12,7 +12,7 @@ public class ItemsListViewModelTests
         var radius = 0.0;
 
         // Act
-        var result = radius > 0 ? radius : 10;
+        var result = ItemsValidator.GetEffectiveRadius(radius);
 
         // Assert
         Assert.Equal(10, result);
@@ -25,7 +25,7 @@ public class ItemsListViewModelTests
         var radius = 25.0;
 
         // Act
-        var result = radius > 0 ? radius : 10;
+        var result = ItemsValidator.GetEffectiveRadius(radius);
 
         // Assert
         Assert.Equal(25, result);
@@ -39,7 +39,7 @@ public class ItemsListViewModelTests
         var radius = 0.0;
 
         // Act
-        var result = radius > 0 ? radius : 10;
+        var result = ItemsValidator.GetEffectiveRadius(radius);
 
         // Assert
         Assert.Equal(10, result);
