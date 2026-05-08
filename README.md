@@ -1,1 +1,1 @@
-The submission had testing implemented, I have just corrected namespace issues. No change was made to the logic of the tests.
+The submission had testing implemented, I have just corrected namespace issues. No change was made to the logic of the tests. Only fixing syntax error and addition of Codecov token.

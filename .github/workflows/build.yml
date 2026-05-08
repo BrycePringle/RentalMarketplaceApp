@@ -1,4 +1,7 @@
 name: Build & Test
+uses: codecov/codecov-action@v5
+with:
+token: ${{ secrets.CODECOV_TOKEN }}
 
 on:
   pull_request:
